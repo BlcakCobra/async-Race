@@ -1,0 +1,127 @@
+$firstBlockColor: #1A1A1A;
+
+.firstBlock {
+    position: relative;
+    width: 100%;
+    height: 804px;
+    background-color: $firstBlockColor;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    overflow: hidden;
+
+}
+
+.backgroundPattern {
+    position: absolute;
+    top: 35%;
+    left: 75%;
+    transform: translateX(-50%);
+    width: 436.41px;
+    height: 442.82px;
+    z-index: 0;
+    pointer-events: none;
+    background-color: transparent;
+}
+
+.backgroundImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transform: rotate(75.24deg);
+    background-color: transparent;
+
+}
+
+.infoRow {
+    position: relative;
+    z-index: 1;
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    margin-top: 90px;
+    background-color: transparent;
+
+}
+
+.infoText {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 30px;
+    background-color: transparent;
+
+}
+
+.titleBlock {
+    position: relative;
+    z-index: 1;
+    width: 80%;
+    height: 240px;
+    margin-top: 80px;
+    display: flex;
+    align-items: flex-start;
+    background-color: transparent;
+}
+
+.title {
+    width: 1139px;
+    height: 240px;
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 100px;
+    line-height: 120px;
+    background-color: transparent;
+    color: white;
+}
+
+.description {
+    position: relative;
+    z-index: 1;
+    max-width: 928px;
+    margin-top: 30px;
+    margin-left: calc(10%);
+    align-self: flex-start;
+    background-color: transparent;
+}
+
+.descriptionText {
+    font-family: 'Syne', sans-serif;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 30px;
+    color: white;
+    background-color: transparent;
+}
+
+.button {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 50px;
+    height: 74px;
+    gap: 20px;
+    margin-top: 110px;
+    margin-left: 10%;
+    align-self: flex-start;
+    font-family: 'Syne', sans-serif;
+    font-weight: 500;
+    font-size: 25px;
+    line-height: 30px;
+    color: white;
+    border-radius: 100px;
+    background-image: linear-gradient(to right, #97b5ff 2%, #0147FF 98%);
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.arrowIcon {
+    width: 34px;
+    height: 34px;
+    background-color: transparent;
+}
