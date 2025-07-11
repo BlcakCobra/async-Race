@@ -1,0 +1,38 @@
+.card {
+    width: 673px;
+    height: 291px;
+    border-radius: 50px;
+    background-color: #0147FF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cardContent {
+    width: 80%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    background-color: transparent;
+}
+
+.title {
+    color: white;
+    font-family: 'Syne';
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 48px;
+    background-color: transparent;
+}
+
+.subtext {
+    width: 573px;
+    height: 90px;
+    font-family: 'Syne';
+    background-color: transparent;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 30px;
+    color: white;
+    margin-top: 35px;
+}
