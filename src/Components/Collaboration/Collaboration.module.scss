@@ -1,0 +1,28 @@
+.collabLogos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 170px;
+    margin-top: 100px;
+}
+
+.logoBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+}
+
+.collaborationLogo {
+    width: auto;
+    object-fit: contain;
+    display: block;
+}
+
+.small {
+    height: 40px;
+}
+
+.large {
+    height: 64px;
+}
