@@ -1,0 +1,40 @@
+.Connect {
+    width: 100%;
+    height: auto;
+    border-radius: 50px;
+    height: auto;
+    background-color: #1A1A1A;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin-top: 150px;
+    padding-top: 90px;
+}
+
+.ConnectBox {
+    width: 90%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    background-color: transparent;
+    justify-content: space-around;
+    gap: 90px;
+}
+
+.FirstTwoBlocks {
+    background-color: transparent;
+    width: auto;
+    height: 655px;
+    display: flex;
+    flex-direction: row;
+    gap: 100px;
+}
+
+.Map {
+    height: 570px;
+    border-radius: 50px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+}

@@ -1,0 +1,101 @@
+.TitlePart {
+  background-color: transparent;
+  display: flex;
+  gap: 30px;
+  flex-direction: column;
+  justify-content: flex-start;
+  box-sizing: border-box;
+}
+
+.title {
+  color: white;
+  background-color: transparent;
+  width: 100%;
+  max-width: 507px;
+  height: auto;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 50px;
+  line-height: 60px;
+  text-transform: capitalize;
+  word-wrap: break-word;
+}
+
+.description {
+  background-color: transparent;
+  width: 100%;
+  max-width: 516px;
+  height: auto;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 30px;
+  color: white;
+  word-wrap: break-word;
+}
+
+.ContactUs {
+  width: 100%;
+  gap: 43px;
+  background-color: transparent;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+.Block {
+  width: calc(50% - 22px);
+  max-width: 100%;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 20px;
+  box-sizing: border-box;
+}
+
+.contactTitle {
+  background-color: transparent;
+  width: 100%;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 30px;
+  color: white;
+  text-align: center;
+  word-wrap: break-word;
+}
+
+.contactDescription {
+  background-color: transparent;
+  width: 100%;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 30px;
+  color: #FFFFFF;
+  text-align: center;
+  word-wrap: break-word;
+}
+
+.logoBox {
+  width: auto;
+  height: 21.85px;
+  display: flex;
+  background-color: transparent;
+  flex-direction: row;
+  justify-content: space-around;
+  gap: 20px;
+}
+
+.logo {
+  width: 21.85px;
+  height: 21.85px;
+  border-radius: 5px;
+  border: 1px solid white;
+  background-color: blue;
+}

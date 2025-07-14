@@ -9,7 +9,7 @@ import WhyAttend from "./Components/WhyAttend/WhyAttend"
 import PastAttendees from "./Components/PastAttendees/PastAttendees"
 import RegisterNow from "./Components/RegisterNow/RegisterNow"
 import TicketOptions from "./Components/TicketOptions/TicketOptions"
-// import Connect from "./Components/Connect/Connect"
+import Connect from "./Components/Connect/Connect"
 // import Footer from "./Components/Footer/Footer"
 
 const Home = () => (
@@ -25,7 +25,7 @@ const Home = () => (
     <PastAttendees />
     <RegisterNow />
     <TicketOptions />
-    {/* <Connect /> */}
+    <Connect />
     {/* <Footer /> */}
   </div>
 )
