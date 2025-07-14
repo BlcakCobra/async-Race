@@ -10,15 +10,13 @@
 
 .cardContent {
     width: 80%;
-    height: 80%;
+    background-color: transparent;
     display: flex;
     flex-direction: column;
-    background-color: transparent;
 }
 
 .title {
     color: white;
-    font-family: 'Syne';
     font-size: 40px;
     font-weight: 700;
     line-height: 48px;
@@ -28,7 +26,6 @@
 .subtext {
     width: 573px;
     height: 90px;
-    font-family: 'Syne';
     background-color: transparent;
     font-size: 20px;
     font-weight: 400;

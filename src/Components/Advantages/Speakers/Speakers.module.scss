@@ -1,6 +1,6 @@
 .card {
-    width: 532px;
-    height: 569px;
+    max-width: 532px;
+    min-height: 569px;
     border-radius: 50px;
     background-color: #0147FF;
     display: flex;
@@ -19,7 +19,6 @@
 
 .title {
     color: white;
-    font-family: 'Syne';
     font-size: 40px;
     font-weight: 700;
     line-height: 48px;
@@ -53,7 +52,6 @@
 
 .subtext {
     width: 305px;
-    font-family: 'Syne';
     font-size: 20px;
     font-weight: 400;
     line-height: 30px;
@@ -63,9 +61,10 @@
 
 .footerRow {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     margin-top: 170px;
+    gap: 32px;
     height: 74px;
     background-color: transparent;
 }
@@ -75,11 +74,10 @@
     align-items: center;
     justify-content: center;
     gap: 12px;
-    width: 215px;
+    width: 275px;
     height: 74px;
     border-radius: 100px;
     border: 1px solid white;
-    font-family: 'Syne';
     font-size: 25px;
     font-weight: 500;
     line-height: 30px;

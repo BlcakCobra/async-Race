@@ -1,8 +1,8 @@
 import styles from "./Speakers.module.scss";
 import upRightArrow from "../../../assets/upRightArrow.svg";
-import ImagesCollection from "../ImagesColection/ImagesColection";
+import ImagesCollection from "../ImagesCollection/ImagesCollection";
 
-const Speakers= () => (
+const Speakers = () => (
 
     <article className={styles.card}>
         <div className={styles.cardContent}>
@@ -12,7 +12,7 @@ const Speakers= () => (
                 <div className={styles.iconCircle} role="presentation">
                     <img
                         src={upRightArrow}
-                        alt="upRightArrow"
+                        alt="Open external link"
                         className={styles.icon}
                     />
                 </div>
@@ -24,6 +24,7 @@ const Speakers= () => (
 
             <div className={styles.footerRow}>
                 <ImagesCollection />
+
                 <button className={styles.moreButton}>
                     And more
                     <img

@@ -1,4 +1,4 @@
-import styles from "./ImagesColection.module.scss";
+import styles from "./ImagesCollection.module.scss";
 import first from "./../../../assets/representativesFirst (1).png";
 import second from "./../../../assets/representativesSecond(2).png";
 import third from "./../../../assets/representativesThird(3).png";
@@ -8,6 +8,7 @@ export default function ImagesCollection() {
     const images = [first, second, third, fourth];
 
     return (
+        
         <div className={styles.container}>
             {images.map((src, index) => (
                 <div

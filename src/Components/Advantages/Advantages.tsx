@@ -3,7 +3,7 @@ import NetworkingOpportunities from "./NetworkingOpportunities/NetworkingOpportu
 import Speakers from "./Speakers/Speakers";
 import Technologies from "./Technologies/Technologies";
 
-const Advantages: React.FC = () => (
+const Advantages = () => (
 
   <section className={styles.advantages}>
     <Speakers />

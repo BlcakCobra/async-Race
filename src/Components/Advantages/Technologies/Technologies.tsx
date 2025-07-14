@@ -1,7 +1,7 @@
 import styles from "./Technologies.module.scss";
 
 const Technologies = () => (
-    
+
     <article className={styles.card}>
         <div className={styles.cardContent}>
             <h2 className={styles.title}>Technologies</h2>
