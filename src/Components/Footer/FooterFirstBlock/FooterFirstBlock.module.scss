@@ -1,0 +1,53 @@
+.Content {
+    width: 80%;
+    height: 80%;
+    background-color: transparent;
+    display: flex;
+    align-self: center;
+    gap: 70px;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.title {
+    width: 428px;
+    height: 36px;
+    font-style: normal;
+    font-weight: 700;
+    background-color: transparent;
+    font-size: 30px;
+    line-height: 36px;
+    align-self: flex-start;
+}
+
+.menuItem {
+    width: 169px;
+    height: 30px;
+    font-style: normal;
+    background-color: transparent;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 30px;
+    color: #1C1A1A;
+}
+
+.MenuList {
+    width: 80%;
+    align-self: flex-start;
+    height: auto;
+    display: flex;
+    background-color: transparent;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.lastTitle {
+    height: 30px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    background-color: transparent;
+    line-height: 30px;
+    color: #7E7E7E;
+    align-self: flex-start;
+}

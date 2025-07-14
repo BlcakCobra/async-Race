@@ -10,7 +10,7 @@ import PastAttendees from "./Components/PastAttendees/PastAttendees"
 import RegisterNow from "./Components/RegisterNow/RegisterNow"
 import TicketOptions from "./Components/TicketOptions/TicketOptions"
 import Connect from "./Components/Connect/Connect"
-// import Footer from "./Components/Footer/Footer"
+import Footer from "./Components/Footer/Footer"
 
 const Home = () => (
 
@@ -26,7 +26,7 @@ const Home = () => (
     <RegisterNow />
     <TicketOptions />
     <Connect />
-    {/* <Footer /> */}
+    <Footer />
   </div>
 )
 
