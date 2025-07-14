@@ -5,7 +5,7 @@ import Collaboration from "./Components/Collaboration/Collaboration"
 import Advantages from "./Components/Advantages/Advantages"
 import Agenda from "./Components/Agenda/Agenda"
 import KeynoteSpeakers from "./Components/KeynoteSpeakers/KeynoteSpeakers"
-// import WhyAttend from "./Components/WhyAttend/WhyAttend"
+import WhyAttend from "./Components/WhyAttend/WhyAttend"
 // import PastAttendees from "./Components/PastAttendees/PastAttendees"
 // import RegisterNow from "./Components/RegisterNow/RegisterNow"
 // import TicketOptions from "./Components/TicketOptions/TicketOptions"
@@ -21,7 +21,7 @@ const Home = () => (
     <Advantages />
     <Agenda />
     <KeynoteSpeakers />
-    {/* <WhyAttend /> */}
+    <WhyAttend />
     {/* <PastAttendees /> */}
     {/* <RegisterNow /> */}
     {/* <TicketOptions /> */}
