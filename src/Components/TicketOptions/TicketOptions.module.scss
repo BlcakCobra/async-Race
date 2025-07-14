@@ -1,0 +1,82 @@
+.TicketOptionsMain {
+    width: 100%;
+    height: auto;
+    margin-top: 150px;
+}
+
+.Maintitle {
+    width: 1240px;
+    height: 60px;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 50px;
+    line-height: 60px;
+    text-transform: capitalize;
+    color: #FFFFFF;
+}
+
+.TicketOptionsBox {
+    width: 100%;
+    height: 494px;
+    border-radius: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 60px;
+    align-items: center;
+}
+
+.TicketContentCard {
+    width: 400px;
+    height: 494px;
+    border: 1px solid white;
+    display: flex;
+    justify-content: center;
+    background-color: transparent;
+    border-radius: 50px;
+    align-items: center;
+}
+
+.CardContent {
+    width: 80%;
+    height: 80%;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 70px;
+}
+
+.title {
+    width: 258px;
+    height: 30px;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 26px;
+    line-height: 30px;
+    text-transform: uppercase;
+    background-color: transparent;
+}
+
+.description {
+    width: 163px;
+    height: 30px;
+    font-style: normal;
+    font-weight: 400;
+    background-color: transparent;
+    font-size: 20px;
+    line-height: 30px;
+    color: #FFFFFF;
+}
+
+.price {
+    width: 150px;
+    height: 60px;
+    font-style: normal;
+    font-weight: 700;
+    color: #FFFFFF;
+    background-color: transparent;
+    font-size: 50px;
+    line-height: 60px;
+    text-transform: uppercase;
+}
