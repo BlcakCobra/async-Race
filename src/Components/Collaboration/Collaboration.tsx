@@ -9,6 +9,7 @@ export default function Collaboration() {
     const collabLogos = [amazon, dribble, hubspot, notion, gumroad]
 
     return (
+        
         <div className={styles.collabLogos}>
             {collabLogos.map((logo, index) => (
                 <div className={styles.logoBox} key={index}>
