@@ -4,6 +4,7 @@ export default function Header() {
     const navItems = ["Home", "Schedule", "Speakers", "Tickets", "Venue", "Sponsors"]
 
     return (
+
         <header className={styles.header}>
             <div className={styles.logo}>nexus</div>
             <nav className={styles.nav}>
