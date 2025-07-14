@@ -1,6 +1,6 @@
 import styles from "./FirstBlock.module.scss";
-import upRightArrow from "../../assets/upRightArrow.svg";
 import bluePattern from "../../assets/2446f29a-72f7-4eef-ae50-edb836b3dcee.png";
+import Button from "../Button/Button";
 
 const FirstBlock = () => (
 
@@ -32,14 +32,7 @@ const FirstBlock = () => (
             </p>
         </div>
 
-        <div className={styles.button}>
-            Early bird tickets
-            <img
-                src={upRightArrow}
-                alt="Arrow icon"
-                className={styles.arrowIcon}
-            />
-        </div>
+        <Button width="auto" top="110px" left="10%" text="Early bird tickets" />
     </section>
 );
 
