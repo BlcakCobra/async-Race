@@ -1,9 +1,8 @@
-import styles from "./Footer.module.scss";
-import FooterFirstBlock from "./FooterFirstBlock/FooterFirstBlock";
-import FooterSecondBlock from "./FooterSecondBlock/FooterSecondBlock";
+import styles from './Footer.module.scss';
+import FooterFirstBlock from './FooterFirstBlock/FooterFirstBlock';
+import FooterSecondBlock from './FooterSecondBlock/FooterSecondBlock';
 
 const Footer = () => (
-
   <footer className={styles.footerMain}>
     <div className={styles.footerContentWrapper}>
       <div className={styles.leftColumn}>
@@ -15,4 +14,4 @@ const Footer = () => (
     </div>
   </footer>
 );
-export default Footer
+export default Footer;

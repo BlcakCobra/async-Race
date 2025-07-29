@@ -1,121 +1,120 @@
 .Second {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50px;
-    background-color: #0147FF;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50px;
+  background-color: #0147ff;
 }
 
 .Content {
-    width: 80%;
-    gap: 40px;
-    height: 80%;
-    background-color: transparent;
-    display: flex;
-    align-self: center;
-    flex-direction: column;
-    justify-content: center;
+  width: 80%;
+  gap: 40px;
+  height: 80%;
+  background-color: transparent;
+  display: flex;
+  align-self: center;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .title {
-    width: 225px;
-    height: 30px;
-    background-color: transparent;
-    font-style: normal;
-    font-weight: 700;
-    font-size: 26px;
-    color: rgb(255, 255, 255);
-    line-height: 30px;
+  width: 225px;
+  height: 30px;
+  background-color: transparent;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 26px;
+  color: rgb(255, 255, 255);
+  line-height: 30px;
 }
 
 .description {
-    width: 423px;
-    height: 30px;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 30px;
-    color: rgb(255, 255, 255);
-    background-color: transparent;
-
+  width: 423px;
+  height: 30px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 30px;
+  color: rgb(255, 255, 255);
+  background-color: transparent;
 }
 
 .button {
-    z-index: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0 50px;
-    width: 232px;
-    height: 74px;
-    gap: 20px;
-    align-self: flex-start;
-    font-weight: 500;
-    margin-top: 50px;
-    font-size: 20px;
-    line-height: 30px;
-    color: white;
-    border-radius: 100px;
-    background-image: linear-gradient(to right, #97b5ff 2%, #0147FF 98%);
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    transition: all 0.3s ease;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 50px;
+  width: 232px;
+  height: 74px;
+  gap: 20px;
+  align-self: flex-start;
+  font-weight: 500;
+  margin-top: 50px;
+  font-size: 20px;
+  line-height: 30px;
+  color: white;
+  border-radius: 100px;
+  background-image: linear-gradient(to right, #97b5ff 2%, #0147ff 98%);
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 .contactTitle {
-    color: white;
+  color: white;
 }
 
 .arrowIcon {
-    width: 34px;
-    height: 34px;
-    background-color: transparent;
+  width: 34px;
+  height: 34px;
+  background-color: transparent;
 }
 
 .button:hover {
-    transform: scale(1.02);
-    box-shadow: 0 0 10px rgba(1, 71, 255, 0.5);
+  transform: scale(1.02);
+  box-shadow: 0 0 10px rgba(1, 71, 255, 0.5);
 }
 
 .Input {
-    width: 100%;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 30px;
-    color: rgb(255, 255, 255);
-    border: none;
-    border-bottom: 1px solid black;
-    background-color: transparent;
-    padding: 8px 0;
-    outline: none;
+  width: 100%;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 30px;
+  color: rgb(255, 255, 255);
+  border: none;
+  border-bottom: 1px solid black;
+  background-color: transparent;
+  padding: 8px 0;
+  outline: none;
 }
 
 .logoBox {
-    width: 200px;
-    height: 21.85px;
-    display: flex;
-    background-color: transparent;
-    flex-direction: row;
-    justify-content: space-around;
-    gap: 20px;
-    margin-top: 25px;
+  width: 200px;
+  height: 21.85px;
+  display: flex;
+  background-color: transparent;
+  flex-direction: row;
+  justify-content: space-around;
+  gap: 20px;
+  margin-top: 25px;
 }
 
 .logo {
-    width: 21.85px;
-    height: 21.85px;
-    border-radius: 5px;
-    background-color: rgb(95, 255, 2);
+  width: 21.85px;
+  height: 21.85px;
+  border-radius: 5px;
+  background-color: rgb(95, 255, 2);
 }
 
 .contactTitle {
-    background-color: transparent;
+  background-color: transparent;
 }
 
 .Block {
-    background-color: transparent;
+  background-color: transparent;
 }
