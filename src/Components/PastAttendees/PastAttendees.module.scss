@@ -36,7 +36,9 @@
   border-radius: 50%;
   cursor: pointer;
   border: 1px solid white;
-  transition: background-color 0.3s ease-in, color 0.3s ease-in;
+  transition:
+    background-color 0.3s ease-in,
+    color 0.3s ease-in;
 
   &:hover {
     background-color: #0147ff;
@@ -62,7 +64,9 @@
   width: 500px;
   height: 443px;
   border-radius: 50px;
-  transition: transform 0.4s ease, z-index 0.4s;
+  transition:
+    transform 0.4s ease,
+    z-index 0.4s;
   cursor: pointer;
   opacity: 0.5;
   transform: scale(0.9);
