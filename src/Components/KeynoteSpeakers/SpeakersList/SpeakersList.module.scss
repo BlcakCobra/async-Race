@@ -1,68 +1,70 @@
 .speakersWrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 80px 0;
-    margin-top: 110px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 80px 0;
+  margin-top: 110px;
 }
 
 .speakersRow {
-    gap: 20px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+  gap: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .speakerCard {
-    width: 295px;
-    height: 452px;
-    border-radius: 16px;
-    display: flex;
-    flex-direction: column;
-    background-color: #dedee0;
-    color: black;
-    text-align: left;
-    overflow: hidden;
+  width: 295px;
+  height: 452px;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  background-color: #dedee0;
+  color: black;
+  text-align: left;
+  overflow: hidden;
 }
 
 .textCard {
-    padding: 50px;
-    align-items: flex-start;
+  padding: 50px;
+  align-items: flex-start;
 }
 
 .imageCard {
-    padding: 0;
-    align-items: center;
+  padding: 0;
+  align-items: center;
 }
 
 .image {
-    border-radius: 12px;
-    width: 295px;
-    height: 452px;
-    background-size: cover;
-    object-fit: cover;
-    filter: grayscale(100%);
-    transition: filter 0.3s ease;
+  border-radius: 12px;
+  width: 295px;
+  height: 452px;
+  background-size: cover;
+  object-fit: cover;
+  filter: grayscale(100%);
+  transition: filter 0.3s ease;
 }
 
 .speakerCard:hover .image {
-    filter: grayscale(0%);
-    transition: filter 0.3s ease, transform 0.3s ease;
-    transform: scale(1.05);
+  filter: grayscale(0%);
+  transition:
+    filter 0.3s ease,
+    transform 0.3s ease;
+  transform: scale(1.05);
 }
 
 .name {
-    font-weight: 600;
-    font-size: 24px;
-    background-color: transparent;
-    line-height: 32px;
-    margin-bottom: 16px;
+  font-weight: 600;
+  font-size: 24px;
+  background-color: transparent;
+  line-height: 32px;
+  margin-bottom: 16px;
 }
 
 .description {
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 28px;
-    margin-top: 210px;
-    background-color: transparent;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 28px;
+  margin-top: 210px;
+  background-color: transparent;
 }
