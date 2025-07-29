@@ -1,6 +1,7 @@
-import Button from "../../Button/Button"
-import styles from "./Schedule.module.scss"
-import Pattern from "./../../../assets/ChatGPT Image 11 июл. 2025 г., 19_33_20.png"
+import Button from '../../Button/Button';
+
+import Pattern from './../../../assets/ChatGPT Image 11 июл. 2025 г., 19_33_20.png';
+import styles from './Schedule.module.scss';
 
 const schedule = [
   {
@@ -10,7 +11,7 @@ const schedule = [
     timeStart: '09:00',
     timeEnd: '19:00',
     description:
-      "The summit kicks off with a keynote, expert panels, and discussions on AI’s impact, ethics, and automation. Hands-on workshops and a networking event wrap up the day.",
+      'The summit kicks off with a keynote, expert panels, and discussions on AI’s impact, ethics, and automation. Hands-on workshops and a networking event wrap up the day.',
   },
   {
     date: '2025-07-11',
@@ -19,7 +20,7 @@ const schedule = [
     timeStart: '09:00',
     timeEnd: '20:00',
     description:
-      "Explore the latest in generative AI, robotics, and NLP, with industry-led discussions and tech demos. A startup showcase and investor insights highlight AI’s business potential.",
+      'Explore the latest in generative AI, robotics, and NLP, with industry-led discussions and tech demos. A startup showcase and investor insights highlight AI’s business potential.',
   },
   {
     date: '2025-07-12',
@@ -28,12 +29,11 @@ const schedule = [
     timeStart: '09:30',
     timeEnd: '16:00',
     description:
-      "Dive into AI’s long-term impact, attend expert-led workshops, and watch the startup pitch competition. The event closes with a visionary keynote and final networking sessions.",
+      'Dive into AI’s long-term impact, attend expert-led workshops, and watch the startup pitch competition. The event closes with a visionary keynote and final networking sessions.',
   },
-]
+];
 
 const Schedule = () => (
-
   <div className={styles.schedule}>
     <div className={styles.scheduleContainer}>
       {schedule.map((el) => (
@@ -54,6 +54,6 @@ const Schedule = () => (
     </div>
     <img src={Pattern} alt="Pattern" className={styles.Pattern} />
   </div>
-)
+);
 
-export default Schedule
+export default Schedule;

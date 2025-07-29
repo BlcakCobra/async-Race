@@ -1,41 +1,32 @@
-import styles from "./Speakers.module.scss";
-import upRightArrow from "../../../assets/upRightArrow.svg";
-import ImagesCollection from "../ImagesCollection/ImagesCollection";
+import upRightArrow from '../../../assets/upRightArrow.svg';
+import ImagesCollection from '../ImagesCollection/ImagesCollection';
+
+import styles from './Speakers.module.scss';
 
 const Speakers = () => (
+  <article className={styles.card}>
+    <div className={styles.cardContent}>
+      <h2 className={styles.title}>Speakers</h2>
 
-    <article className={styles.card}>
-        <div className={styles.cardContent}>
-            <h2 className={styles.title}>Speakers</h2>
-
-            <div className={styles.description}>
-                <div className={styles.iconCircle} role="presentation">
-                    <img
-                        src={upRightArrow}
-                        alt="Open external link"
-                        className={styles.icon}
-                    />
-                </div>
-                <p className={styles.subtext}>
-                    Hear from global AI leaders, researchers, and entrepreneurs<br />
-                    who are defining the future of artificial intelligence.
-                </p>
-            </div>
-
-            <div className={styles.footerRow}>
-                <ImagesCollection />
-
-                <button className={styles.moreButton}>
-                    And more
-                    <img
-                        src={upRightArrow}
-                        alt="upRightArrow"
-                        className={styles.icon}
-                    />
-                </button>
-            </div>
+      <div className={styles.description}>
+        <div className={styles.iconCircle} role="presentation">
+          <img src={upRightArrow} alt="Open external link" className={styles.icon} />
         </div>
-    </article>
-);
+        <p className={styles.subtext}>
+          Hear from global AI leaders, researchers, and entrepreneurs
+          <br />
+          who are defining the future of artificial intelligence.
+        </p>
+      </div>
+      <div className={styles.footerRow}>
+        <ImagesCollection />
 
+        <button className={styles.moreButton}>
+          And more
+          <img src={upRightArrow} alt="upRightArrow" className={styles.icon} />
+        </button>
+      </div>
+    </div>
+  </article>
+);
 export default Speakers;
