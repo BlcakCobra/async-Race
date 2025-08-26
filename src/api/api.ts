@@ -22,12 +22,13 @@ export const ReqToServer = {
         if (!color) {
             throw new Error("Color can't be empty");
         }
-
         try {
             const response = await baseUrl.post("/garage", {
                 name,
                 color
             });
+            console.log(response);
+            
             return response.data;
         } catch (error) {
             console.error("Error creating car:", error);

@@ -4,7 +4,7 @@ export interface Car {
   id: number;
 }
 
-export interface CarState {
+export interface initialStateType {
     cars: Car[];
     loading: boolean;
     error: string | null;

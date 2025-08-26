@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { ReqToServer } from './../../api/api';
-import { Car, CarState } from '@/types/GetCareType';
+import { Car,  initialStateType } from '@/types/GetCareType';
 
 
 export const AsyncGetCarSlice = createAsyncThunk<Car[], void, { rejectValue: string }>(
@@ -17,7 +17,7 @@ export const AsyncGetCarSlice = createAsyncThunk<Car[], void, { rejectValue: str
 
 
 
-const initialState: CarState = {
+const initialState: initialStateType = {
     cars: [],
     loading: false,
     error: null,
