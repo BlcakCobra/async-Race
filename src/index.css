@@ -3,5 +3,7 @@
   margin: 0;
   box-sizing: border-box;
   font-family: 'Syne', sans-serif;
-  background-color: black;
+}
+body {
+  background: url('https://www.transparenttextures.com/patterns/dark-wood.png'), rgb(16, 9, 28); 
 }

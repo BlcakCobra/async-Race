@@ -14,7 +14,7 @@ export default [
     languageOptions: {
       parser: parserTs,
       parserOptions: {
-        project: ['./tsconfig.json'],
+        project: ['./tsconfig.json'], 
         ecmaVersion: 'latest',
         sourceType: 'module',
         ecmaFeatures: {
@@ -22,7 +22,7 @@ export default [
         },
       },
       globals: {
-        ...globals.browser,
+        ...globals.browser, 
       },
     },
     plugins: {
@@ -34,7 +34,7 @@ export default [
     },
     settings: {
       react: {
-        version: 'detect',
+        version: 'detect', 
       },
       'import/resolver': {
         typescript: {
@@ -75,10 +75,12 @@ export default [
 
       '@typescript-eslint/no-unused-vars': ['warn', { argsIgnorePattern: '^_' }],
       '@typescript-eslint/explicit-module-boundary-types': 'off',
-      'react/react-in-jsx-scope': 'off',
+      '@typescript-eslint/explicit-function-return-type': 'warn', 
+
+      'react/react-in-jsx-scope': 'off', 
     },
   },
   {
-    ignores: ['node_modules', 'dist', '.next'],
+    ignores: ['node_modules', 'dist', '.next'], 
   },
 ];
