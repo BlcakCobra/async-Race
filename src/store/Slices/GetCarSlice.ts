@@ -21,12 +21,17 @@ const initialState: initialStateType = {
     cars: [],
     loading: false,
     error: null,
+    currentPage: 1
 };
 
 const GetCarSlice = createSlice({
     name: 'GetCarSlice',
     initialState,
-    reducers: {},
+    reducers: {
+        setCurrentPage(state,action){
+            state.currentPage = action.payload
+        }
+    },
     extraReducers: (builder) => {
         builder
             .addCase(AsyncGetCarSlice.pending, (state) => {
@@ -36,6 +41,7 @@ const GetCarSlice = createSlice({
             .addCase(AsyncGetCarSlice.fulfilled, (state, action) => {
                 state.loading = false;
                 state.cars = action.payload;
+               
             })
             .addCase(AsyncGetCarSlice.rejected, (state, action) => {
                 state.loading = false;
@@ -45,3 +51,4 @@ const GetCarSlice = createSlice({
 });
 
 export default GetCarSlice.reducer;
+export const {setCurrentPage} = GetCarSlice.actions

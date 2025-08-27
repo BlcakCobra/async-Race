@@ -8,4 +8,5 @@ export interface initialStateType {
     cars: Car[];
     loading: boolean;
     error: string | null;
+    currentPage:number
 }

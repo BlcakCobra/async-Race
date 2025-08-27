@@ -1,13 +1,15 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
-import  GetCarSlice  from './Slices/GetCarSlice';
-import  CreateCarSlice  from './Slices/CreateCarSlice';
+import GetCarSlice from './Slices/GetCarSlice';
+import CreateCarSlice from './Slices/CreateCarSlice';
+import DeleteCarSlice from './Slices/DeleteCarSlice';
 
 
 export const store = configureStore({
   reducer: {
-    GetCarSlice:GetCarSlice,
-    CreateCarSlice:CreateCarSlice
+    GetCarSlice: GetCarSlice,
+    CreateCarSlice: CreateCarSlice,
+    DeleteCarSlice: DeleteCarSlice
   },
 });
 

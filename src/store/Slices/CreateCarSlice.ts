@@ -1,17 +1,17 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { ReqToServer } from './../../api/api';
-import { Car } from '@/types/GetCareType';
-import { initialStateType } from '@/types/CreateCarType';
+import { Car } from './../../types/GetCareType';
+import { initialStateType } from './../../types/CreateCarType';
 
 export const AsyncCreateCarSlice = createAsyncThunk<Car, { name: string, color: string }, { rejectValue: string }>(
     'CreateCarSlice',
     async (_args, { rejectWithValue }) => {
         const { name, color } = _args;
         if (!name || name.length < 3) {
-            throw new Error("Name must be at least 3 characters long");
+            return rejectWithValue("Name must be at least 3 characters long");
         }
         if (!color) {
-            throw new Error("Color can't be empty");
+            return rejectWithValue("Color can't be empty");
         }
         try {
             const response = await ReqToServer.createCarReq(name, color);
@@ -44,6 +44,11 @@ const CreateCarSlice = createSlice({
         },
         setError(state,action){
             state.error = action.payload
+        },
+        ResetAreas(state){
+            if(state.car.color || state.car.name ){
+                state.car = { ...initialState.car }
+            }
         }
     },
     extraReducers: (builder) => {
@@ -64,4 +69,4 @@ const CreateCarSlice = createSlice({
 
 export default CreateCarSlice.reducer;
 
-export const {setCarName,setCarColor,setError} = CreateCarSlice.actions
+export const {setCarName,setCarColor,setError,ResetAreas} = CreateCarSlice.actions

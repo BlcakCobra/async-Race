@@ -6,8 +6,9 @@
       "@/*": ["src/*"]
     },
     "module": "ESNext",
-    "typeRoots": ["./node_modules/@types", "./Server/types"],
+    "typeRoots": ["./node_modules/@types"],
     "outDir": "dist",
+    "noImplicitAny": true,
     "rootDir": "./",
     "strict": true,
     "esModuleInterop": true,
@@ -21,11 +22,6 @@
     "isolatedModules": true,
     "strictNullChecks": true,
     "jsx": "preserve",
-    "plugins": [
-      {
-        "name": "next"
-      }
-    ]
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules"]
