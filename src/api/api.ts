@@ -68,5 +68,20 @@ export const ReqToServer = {
             console.error("Error deleting car:", error);
             throw error;
         }
+    },
+
+async engineControlReq(id: number, status: 'started' | 'stopped' | 'drive') {
+        if (!id || id <= 0) throw new Error('Invalid id');
+        if (!['started', 'stopped', 'drive'].includes(status)) throw new Error('Invalid status');
+
+        try {
+            const response = await baseUrl.patch(`/engine`, null, {
+                params: { id, status },
+            });
+            return response.data; 
+        } catch (error: any) {
+            console.error(error.response?.data || error.message);
+            throw error;
+        }
     }
-};
+}
