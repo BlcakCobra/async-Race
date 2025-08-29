@@ -1,7 +1,9 @@
 import React from 'react';
-import styles from "./CreateCar.module.scss";
+
 import { setCarName, setCarColor } from '../../../store/Slices/CreateCarSlice';
 import { useAppDispatch, useAppSelector } from '../../../store/store';
+
+import styles from './CreateCar.module.scss';
 
 type CreateCarProps = {
   handleSubmit: (event: React.FormEvent<HTMLFormElement>) => void;
@@ -29,7 +31,9 @@ const CreateCar: React.FC<CreateCarProps> = ({ handleSubmit }) => {
           onChange={(e) => dispatch(setCarColor(e.target.value))}
         />
       </div>
-      <button className={styles.createMenu} type='submit'>Create New Car</button>
+      <button className={styles.createMenu} type="submit">
+        Create New Car
+      </button>
     </form>
   );
 };

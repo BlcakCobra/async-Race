@@ -1,0 +1,110 @@
+.winnerContainer {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin: 50px auto;
+  background: linear-gradient(145deg, #1e1e1e, #2a2a2a);
+  max-width: 95%;
+}
+
+.title {
+  color: #fff;
+  margin-bottom: 20px;
+  font-size: 2rem;
+  text-align: center;
+}
+
+.winnersTable {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.header,
+.row {
+  display: grid;
+  grid-template-columns: 80px 120px 1fr 2fr 1fr 1fr;
+  justify-content: center;
+  gap: 75px;
+}
+
+.header {
+  font-weight: bold;
+  color: #00ffcc;
+  border-bottom: 2px solid rgba(0, 255, 200, 0.3);
+  padding-bottom: 8px;
+}
+
+.rows {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.row {
+  padding: 8px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  transition: all 0.3s ease;
+  justify-content: center;
+}
+
+.row:hover {
+  background: rgba(0, 255, 200, 0.1);
+  transform: scale(1.02);
+}
+
+.row button {
+  padding: 4px 6px;
+  border-radius: 6px;
+  border: none;
+  background: red;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.row button:hover {
+  background: darkred;
+}
+
+.row svg {
+  max-width: 80px;
+  height: auto;
+}
+
+.loading,
+.error {
+  color: #fff;
+  font-size: 1.2rem;
+  text-align: center;
+  padding: 20px;
+}
+
+@media (max-width: 600px) {
+  .header,
+  .row {
+    grid-template-columns: 40px 50px 40px 1fr 50px 50px;
+    justify-content: center;
+  }
+
+  .winnerContainer {
+    margin: 20px auto;
+    padding: 12px;
+  }
+
+  .title {
+    font-size: 1.5rem;
+  }
+
+  .row svg {
+    max-width: 50px;
+  }
+}

@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { JSX } from 'react';
 import ReactPaginate from 'react-paginate';
+
 import styles from './Pagination.module.scss';
 
 interface PaginationProps {
@@ -7,8 +8,11 @@ interface PaginationProps {
   onPageChange: (selectedPage: number) => void;
 }
 
-const Pagination: React.FC<PaginationProps> = ({ pageCount, onPageChange }) => {
-  const handleChange = (selectedItem: { selected: number }) => {
+const Pagination: React.FC<PaginationProps> = ({
+  pageCount,
+  onPageChange,
+}): JSX.Element => {
+  const handleChange = (selectedItem: { selected: number }): void => {
     onPageChange(selectedItem.selected + 1);
   };
 

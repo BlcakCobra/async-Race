@@ -1,4 +1,5 @@
-import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+
 import { ReqToServer } from './../../api/api';
 import { Car } from './../../types/GetCareType';
 
@@ -9,20 +10,20 @@ interface UpdateCarPayload {
 }
 
 export const AsyncUpdateCarSlice = createAsyncThunk<
-  Car, 
-  UpdateCarPayload, 
-  { rejectValue: string } 
->(
-  'AsyncUpdateCarSlice',
-  async ({ id, name, color }, { rejectWithValue }) => {
-    try {
-      const updatedCar = await ReqToServer.updateCarReq(name, color, id);
-      return updatedCar;
-    } catch (error: any) {
-      return rejectWithValue(error.message || 'Failed to update car.');
+  Car,
+  UpdateCarPayload,
+  { rejectValue: string }
+>('AsyncUpdateCarSlice', async ({ id, name, color }, { rejectWithValue }) => {
+  try {
+    const updatedCar = await ReqToServer.updateCarReq(name, color, id);
+    return updatedCar;
+  } catch (error: unknown) {
+    if (error instanceof Error) {
+      return rejectWithValue(error.message);
     }
+    return rejectWithValue('Failed to create winner');
   }
-);
+});
 
 interface UpdateCarState {
   loading: boolean;
@@ -31,16 +32,16 @@ interface UpdateCarState {
 
 const initialState: UpdateCarState = {
   loading: false,
-  error: null
+  error: null,
 };
 
 const UpdateCarSlice = createSlice({
   name: 'UpdateCarSlice',
   initialState,
   reducers: {
-    resetUpdateError(state) {
+    resetUpdateError: (state) => {
       state.error = null;
-    }
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -56,7 +57,7 @@ const UpdateCarSlice = createSlice({
         state.loading = false;
         state.error = action.payload || 'An error occurred';
       });
-  }
+  },
 });
 
 export const { resetUpdateError } = UpdateCarSlice.actions;

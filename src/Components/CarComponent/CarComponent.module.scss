@@ -13,7 +13,7 @@
 .Menu {
   display: flex;
   align-items: center;
-  justify-content:flex-start;
+  justify-content: flex-start;
   padding-left: 25px;
   gap: 200px;
 }
@@ -21,7 +21,7 @@
 .menuButton {
   padding: 10px 18px;
   border-radius: 8px;
-  background: linear-gradient(135deg, #4CAF50, #2E7D32);
+  background: linear-gradient(135deg, #4caf50, #2e7d32);
   color: white;
   border: none;
   font-weight: bold;
@@ -30,7 +30,7 @@
 }
 
 .menuButton:hover {
-  background: linear-gradient(135deg, #66BB6A, #388E3C);
+  background: linear-gradient(135deg, #66bb6a, #388e3c);
   transform: scale(1.05);
 }
 
@@ -63,7 +63,7 @@
 }
 
 .carInput:focus {
-  border: 1px solid #4CAF50;
+  border: 1px solid #4caf50;
 }
 
 .colorInput {
@@ -79,7 +79,7 @@
 .createButton {
   padding: 10px 16px;
   border-radius: 8px;
-  background: linear-gradient(135deg, #2196F3, #1565C0);
+  background: linear-gradient(135deg, #2196f3, #1565c0);
   color: white;
   border: none;
   font-weight: bold;
@@ -88,7 +88,7 @@
 }
 
 .createButton:hover {
-  background: linear-gradient(135deg, #42A5F5, #1976D2);
+  background: linear-gradient(135deg, #42a5f5, #1976d2);
   transform: scale(1.05);
 }
 
@@ -111,9 +111,6 @@
   flex-direction: column;
   gap: 10px;
 }
-
-
-
 
 .carCard:hover {
   transform: scale(1.05);
@@ -161,7 +158,6 @@
   box-shadow: 0 6px 18px rgba(0, 255, 200, 0.6);
 }
 
-
 .name {
   font-size: 75px;
   color: #ffffffaf;
@@ -178,7 +174,9 @@
   border-radius: 15px;
   border: 3px solid rgba(255, 255, 255, 0.79);
   cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.3s ease;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.3s ease;
 }
 
 .DeleteBut:hover {
@@ -198,9 +196,7 @@
 
 .ModifyBut {
   @extend .DeleteBut;
-  background-color: #1565C0;
-
-
+  background-color: #1565c0;
 }
 
 .Velocity {
@@ -209,8 +205,6 @@
   z-index: 1;
 }
 
-
-.Time{
+.Time {
   color: white;
-
 }

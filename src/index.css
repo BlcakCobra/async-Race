@@ -5,5 +5,7 @@
   font-family: 'Syne', sans-serif;
 }
 body {
-  background: url('https://www.transparenttextures.com/patterns/dark-wood.png'), rgb(16, 9, 28); 
+  background:
+    url('https://www.transparenttextures.com/patterns/dark-wood.png'),
+    rgb(16, 9, 28);
 }

@@ -1,8 +1,10 @@
-import logo from "./../../assets/Copilot_20250826_171120-removebg-preview.png"
-import { NavLink } from 'react-router-dom'
-import styles from "./NavBar.module.scss"
+import { JSX } from 'react';
+import { NavLink } from 'react-router-dom';
 
-export default function NavBar() {
+import logo from './../../assets/Copilot_20250826_171120-removebg-preview.png';
+import styles from './NavBar.module.scss';
+
+export default function NavBar(): JSX.Element {
   return (
     <header>
       <nav className={styles.navbar}>
@@ -12,8 +14,7 @@ export default function NavBar() {
               to="/Garage"
               className={({ isActive }) =>
                 isActive ? `${styles.navLink} ${styles.active}` : styles.navLink
-              }
-            >
+              }>
               Garage
             </NavLink>
           </li>
@@ -22,19 +23,18 @@ export default function NavBar() {
               to="/Winners"
               className={({ isActive }) =>
                 isActive ? `${styles.navLink} ${styles.active}` : styles.navLink
-              }
-            >
+              }>
               Winners
             </NavLink>
           </li>
         </ul>
 
-        <NavLink to={"/"}>
+        <NavLink to={'/'}>
           <div className={styles.logoWrapper}>
             <img src={logo} alt="Async Race logo" className={styles.logoImg} />
           </div>
         </NavLink>
       </nav>
     </header>
-  )
+  );
 }
