@@ -12,23 +12,22 @@ const CarModel: React.FC<CarModelType> = ({
 }): JSX.Element => {
   const trackRef = useRef<HTMLDivElement>(null);
   const carRef = useRef<HTMLDivElement>(null);
-  const [position, setPosition] = useState(0);
-  const [trackWidth, setTrackWidth] = useState(0);
-
+  const [position, setPosition] = useState<number>(0);
+  const [trackWidth, setTrackWidth] = useState<number>(0);
   const dispatch = useAppDispatch();
   const carWidth = 170;
 
   const engineData = useAppSelector((state) => state.EngineSlice.engineData);
-
   const start = engineData[car.id]?.start ?? null;
 
-  useEffect(() => {
+  // Инициализация ширины трека
+  useEffect((): void => {
     if (trackRef.current) {
       setTrackWidth(trackRef.current.offsetWidth);
     }
   }, []);
 
-  useEffect(() => {
+  useEffect((): void => {
     if (velocity > 0 && trackWidth > 0) {
       const travelDistance = trackWidth - carWidth;
       dispatch(setStart({ id: car.id, time: performance.now() }));
@@ -36,9 +35,9 @@ const CarModel: React.FC<CarModelType> = ({
     }
   }, [velocity, trackWidth, car.id, dispatch]);
 
-  useEffect(() => {
+  useEffect((): (() => void) => {
     const el = carRef.current;
-    if (!el || start === null) return;
+    if (!el || start === null) return () => {};
 
     const handleTransitionEnd = (): void => {
       const endTime = performance.now();
@@ -46,11 +45,8 @@ const CarModel: React.FC<CarModelType> = ({
     };
 
     el.addEventListener('transitionend', handleTransitionEnd);
-    return (): void =>
-      el.removeEventListener('transitionend', handleTransitionEnd);
+    return () => el.removeEventListener('transitionend', handleTransitionEnd);
   }, [start, car.id, dispatch]);
-
-  console.log(engineData);
 
   return (
     <div ref={trackRef} className={styles.track}>
@@ -61,7 +57,8 @@ const CarModel: React.FC<CarModelType> = ({
           transform: `translateX(${position}px) rotate(90deg)`,
           transition:
             velocity > 0 ? `transform ${position / velocity}s linear` : 'none',
-        }}>
+        }}
+      >
         <SvgCar color={car.color} />
       </div>
     </div>

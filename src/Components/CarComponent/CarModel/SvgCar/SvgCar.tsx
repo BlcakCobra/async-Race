@@ -10,7 +10,8 @@ export default function SvgCar({ color = '#fff' }: SvgCarProps): JSX.Element {
       width="120"
       height="120"
       viewBox="0 0 300 600"
-      xmlns="http://www.w3.org/2000/svg">
+      xmlns="http://www.w3.org/2000/svg"
+    >
       <rect
         x="60"
         y="100"

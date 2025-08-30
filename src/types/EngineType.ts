@@ -1,12 +1,12 @@
 import { Car } from './GetCareType';
 
 export interface EngineData {
-  velocity?: number | null;
-  distance?: number | null;
-  start?: number | null;
-  end?: number | null;
-  time?: number | null;
-  position: number | null;
+  velocity: number;
+  distance: number;
+  start: number | null;
+  end: number | null;
+  time?: number;
+  position: number;
 }
 
 export interface EngineState {
@@ -19,4 +19,5 @@ export type CarModelType = {
   car: Car;
   velocity?: number;
   distance?: number;
+  onFinish?: () => void;
 };

@@ -19,25 +19,23 @@ import { AsyncGetWinners } from './../../store/Slices/GetWinnersSlice';
 import { AsyncUpdateCarSlice } from './../../store/Slices/UpdateCarSlice';
 import { AsyncUpdateWinner } from './../../store/Slices/UpdateWinnerSlice';
 import { store, useAppDispatch, useAppSelector } from './../../store/store';
-import { EngineData } from './../../types/EngineType';
 import { Car } from './../../types/GetCareType';
 import styles from './CarComponent.module.scss';
 import CarModel from './CarModel/CarModel';
 import CreateCar from './CreateCar/CreateCar';
 import Pagination from './Pagination/Pagination';
 
-const CarComponent: React.FC = (): JSX.Element => {
+const CarComponent = (): JSX.Element => {
   const dispatch = useAppDispatch();
   const { cars, loading, error, currentPage } = useAppSelector(
     (state) => state.GetCarSlice,
   );
   const { name, color } = useAppSelector((state) => state.CreateCarSlice.car);
   const { engineData } = useAppSelector((state) => state.EngineSlice);
-
   const itemsPerPage = 7;
   const [crMenu, setCrMenu] = useState<boolean>(false);
 
-  useEffect(() => {
+  useEffect((): void => {
     dispatch(AsyncGetCarSlice());
   }, [dispatch]);
 
@@ -56,12 +54,10 @@ const CarComponent: React.FC = (): JSX.Element => {
       dispatch(setError("Color can't be empty"));
       return;
     }
-
     dispatch(AsyncCreateCarSlice({ name, color }))
       .unwrap()
       .then(() => dispatch(AsyncGetCarSlice()))
-      .catch((err) => console.error(err));
-
+      .catch((err: unknown) => console.error(err));
     dispatch(ResetAreas());
   };
 
@@ -69,24 +65,29 @@ const CarComponent: React.FC = (): JSX.Element => {
     dispatch(AsyncDeleteCarSlice(id))
       .unwrap()
       .then(() => dispatch(AsyncGetCarSlice()))
-      .catch((err) => console.error(err));
+      .catch((err: unknown) => console.error(err));
   };
 
   const handlePageChange = (page: number): void => {
     dispatch(setCurrentPage(page));
   };
 
+  const totalPages = cars.length ? Math.ceil(cars.length / itemsPerPage) : 1;
+  const paginatedCars = cars.slice(
+    (currentPage - 1) * itemsPerPage,
+    currentPage * itemsPerPage,
+  );
+
   const handleUpdate = (car: Car): void => {
     const newName = prompt('Enter new name:', car.name);
     const newColor = prompt('Enter new color:', car.color);
     if (!newName || !newColor) return;
-
     dispatch(
       AsyncUpdateCarSlice({ id: car.id, name: newName, color: newColor }),
     )
       .unwrap()
       .then(() => dispatch(AsyncGetCarSlice()))
-      .catch((err) => console.error(err));
+      .catch((err: unknown) => console.error(err));
   };
 
   const startEngine = (id: number): void => {
@@ -97,10 +98,10 @@ const CarComponent: React.FC = (): JSX.Element => {
     dispatch(AsyncEngineControl({ id, status: 'stopped' }));
   };
 
-  const waitForAllCarsToFinish = (
+  function waitForAllCarsToFinish(
     carIds: number[],
-    getEngineData: () => Record<number, EngineData>,
-  ): Promise<void> => {
+    getEngineData: () => Record<number, { time?: number }>,
+  ): Promise<void> {
     return new Promise((resolve) => {
       const checkInterval = setInterval(() => {
         const data = getEngineData();
@@ -111,31 +112,24 @@ const CarComponent: React.FC = (): JSX.Element => {
         }
       }, 200);
     });
-  };
+  }
 
   const startAllRaces = (): void => {
-    if (!cars.length) return;
-
-    const paginatedCars = cars.slice(
-      (currentPage - 1) * itemsPerPage,
-      currentPage * itemsPerPage,
-    );
     if (!paginatedCars.length) return;
 
     const carIds = paginatedCars.map((car) => car.id);
-
     const promises = carIds.map((id) =>
       dispatch(AsyncEngineControl({ id, status: 'started' })).unwrap(),
     );
+
     Promise.all(promises)
-      .then(async(): Promise<void> => {
+      .then(async (): Promise<void> => {
         await waitForAllCarsToFinish(
           carIds,
           () => store.getState().EngineSlice.engineData,
         );
 
         const latestEngineData = store.getState().EngineSlice.engineData;
-
         const results = carIds.map((id) => ({
           id,
           time: latestEngineData[id]?.time ?? Infinity,
@@ -147,67 +141,59 @@ const CarComponent: React.FC = (): JSX.Element => {
           null as (typeof results)[0] | null,
         );
 
-        if (!winner) return;
+        if (winner) {
+          alert(
+            `🏆 Winner - Car ${winner.id}, Time ${(winner.time / 1000).toFixed(
+              2,
+            )}s`,
+          );
+          const existingWinner = store
+            .getState()
+            .GetWinnersSlice.winners.find((w) => w.id === winner.id);
 
-        alert(
-          `🏆 Winner - Car ${winner.id}, Time ${(winner.time / 1000).toFixed(2)}s`,
-        );
-
-        const existingWinner = store
-          .getState()
-          .GetWinnersSlice.winners.find((w) => w.id === winner.id);
-
-        if (existingWinner) {
-          const newWins = existingWinner.wins + 1;
-          const bestTime = Math.min(existingWinner.time, winner.time);
-
-          dispatch(
-            AsyncUpdateWinner({
-              id: winner.id,
-              wins: newWins,
-              time: bestTime,
-            }),
-          )
-            .unwrap()
-            .then(() =>
-              dispatch(
-                AsyncGetWinners({
-                  page: 1,
-                  limit: 20,
-                  sort: 'wins',
-                  order: 'DESC',
-                }),
-              ),
-            );
-        } else {
-          dispatch(
-            AsyncCreateWinner({
-              id: winner.id,
-              wins: 1,
-              time: winner.time,
-            }),
-          )
-            .unwrap()
-            .then(() =>
-              dispatch(
-                AsyncGetWinners({
-                  page: 1,
-                  limit: 20,
-                  sort: 'wins',
-                  order: 'DESC',
-                }),
-              ),
-            );
+          if (existingWinner) {
+            const newWins = existingWinner.wins + 1;
+            const bestTime = Math.min(existingWinner.time, winner.time);
+            dispatch(
+              AsyncUpdateWinner({
+                id: winner.id,
+                wins: newWins,
+                time: bestTime,
+              }),
+            )
+              .unwrap()
+              .then(() => {
+                dispatch(
+                  AsyncGetWinners({
+                    page: 1,
+                    limit: 20,
+                    sort: 'wins',
+                    order: 'DESC',
+                  }),
+                );
+              });
+          } else {
+            dispatch(
+              AsyncCreateWinner({ id: winner.id, wins: 1, time: winner.time }),
+            )
+              .unwrap()
+              .then(() => {
+                dispatch(
+                  AsyncGetWinners({
+                    page: 1,
+                    limit: 20,
+                    sort: 'wins',
+                    order: 'DESC',
+                  }),
+                );
+              });
+          }
         }
       })
-      .catch((err) => console.error('Error:', err));
+      .catch((err: unknown): void => {
+        console.error('Error:', err);
+      });
   };
-
-  const totalPages = cars.length ? Math.ceil(cars.length / itemsPerPage) : 1;
-  const paginatedCars = cars.slice(
-    (currentPage - 1) * itemsPerPage,
-    currentPage * itemsPerPage,
-  );
 
   return (
     <div className={styles.carContainer}>
@@ -218,10 +204,11 @@ const CarComponent: React.FC = (): JSX.Element => {
         </button>
         <button
           onClick={() => dispatch(resetEngineData())}
-          className={styles.createMenu}>
+          className={styles.createMenu}
+        >
           Reset Races
         </button>
-        <button onClick={startAllRaces} className={styles.createMenu}>
+        <button onClick={() => startAllRaces()} className={styles.createMenu}>
           Start Race
         </button>
       </div>
@@ -233,30 +220,33 @@ const CarComponent: React.FC = (): JSX.Element => {
           paginatedCars.map((car: Car) => {
             const velocity = engineData[car.id]?.velocity || 0;
             const distance = engineData[car.id]?.distance || 0;
-
             return (
               <div key={car.id} className={styles.carCardBox}>
                 <div className={styles.Buttons}>
                   <button
                     onClick={() => handleDelete(car.id)}
-                    className={styles.DeleteBut}>
+                    className={styles.DeleteBut}
+                  >
                     Delete
                   </button>
                   <button
                     onClick={() => handleUpdate(car)}
-                    className={styles.ModifyBut}>
+                    className={styles.ModifyBut}
+                  >
                     Modify
                   </button>
                   <button
                     onClick={() => startEngine(car.id)}
                     disabled={velocity > 0}
-                    className={styles.EngineBut}>
+                    className={styles.EngineBut}
+                  >
                     Start
                   </button>
                   <button
                     onClick={() => stopEngine(car.id)}
                     disabled={velocity === 0}
-                    className={styles.EngineBut}>
+                    className={styles.EngineBut}
+                  >
                     Stop
                   </button>
                 </div>
@@ -269,7 +259,7 @@ const CarComponent: React.FC = (): JSX.Element => {
                     {engineData[car.id]?.time !== undefined && (
                       <p className={styles.Time}>
                         Time:{' '}
-                        {(engineData[car.id]?.time ?? 0 / 1000).toFixed(2)} s
+                        {((engineData[car.id]?.time ?? 0) / 1000).toFixed(2)} s
                       </p>
                     )}
                   </div>

@@ -1,7 +1,8 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 import { ReqToServer } from '../../api/api';
-import { EngineState } from '../../types/EngineType';
+
+import { EngineState, EngineData } from './../../types/EngineType';
 
 const initialState: EngineState = {
   loading: false,
@@ -13,12 +14,11 @@ export const AsyncEngineControl = createAsyncThunk<
   { id: number; velocity: number; distance: number; time?: number },
   { id: number; status: 'started' | 'stopped' },
   { rejectValue: string }
->('AsyncEngineControl', async (args, { rejectWithValue }) => {
-  const { id, status } = args;
+>('AsyncEngineControl', async ({ id, status }, { rejectWithValue }) => {
   try {
     const data = await ReqToServer.engineControlReq(id, status);
     return { id, ...data };
-  } catch (error: unknown) {
+  } catch (error) {
     if (error instanceof Error) return rejectWithValue(error.message);
     return rejectWithValue('Failed to control engine');
   }
@@ -37,35 +37,19 @@ const EngineSlice = createSlice({
           end: null,
           time: null,
           position: 0,
-        };
+        } as unknown as EngineData;
       });
       state.loading = false;
       state.error = null;
     },
     setStart(state, action: PayloadAction<{ id: number; time: number }>) {
       const { id, time } = action.payload;
-      if (!state.engineData[id])
-        state.engineData[id] = {
-          velocity: 0,
-          distance: 0,
-          position: 0,
-          start: null,
-          end: null,
-          time: null,
-        };
+      state.engineData[id] ??= { position: 0 } as EngineData;
       state.engineData[id].start = time;
     },
     setEnd(state, action: PayloadAction<{ id: number; time: number }>) {
       const { id, time } = action.payload;
-      if (!state.engineData[id])
-        state.engineData[id] = {
-          velocity: 0,
-          distance: 0,
-          position: 0,
-          start: null,
-          end: null,
-          time: null,
-        };
+      state.engineData[id] ??= { position: 0 } as EngineData;
       state.engineData[id].end = time;
       if (state.engineData[id].start != null) {
         state.engineData[id].time = time - state.engineData[id].start;
@@ -73,15 +57,7 @@ const EngineSlice = createSlice({
     },
     setTime(state, action: PayloadAction<{ id: number; time: number }>) {
       const { id, time } = action.payload;
-      if (!state.engineData[id])
-        state.engineData[id] = {
-          velocity: 0,
-          distance: 0,
-          position: 0,
-          start: null,
-          end: null,
-          time: null,
-        };
+      state.engineData[id] ??= { position: 0 } as EngineData;
       state.engineData[id].time = time;
     },
     setPosition(
@@ -89,15 +65,7 @@ const EngineSlice = createSlice({
       action: PayloadAction<{ id: number; position: number }>,
     ) {
       const { id, position } = action.payload;
-      if (!state.engineData[id])
-        state.engineData[id] = {
-          velocity: 0,
-          distance: 0,
-          position: 0,
-          start: null,
-          end: null,
-          time: null,
-        };
+      state.engineData[id] ??= { position: 0 } as EngineData;
       state.engineData[id].position = position;
     },
   },
@@ -119,27 +87,14 @@ const EngineSlice = createSlice({
           }>,
         ) => {
           state.loading = false;
-          const { id, velocity, distance, time } = action.payload;
-
-          if (!state.engineData[id])
-            state.engineData[id] = {
-              velocity: 0,
-              distance: 0,
-              position: 0,
-              start: null,
-              end: null,
-              time: null,
-            };
-
-          if (velocity === 0) {
-            state.engineData[id].velocity = 0;
-            state.engineData[id].position = 0;
-            return;
+          state.engineData[action.payload.id] ??= { position: 0 } as EngineData;
+          state.engineData[action.payload.id].velocity =
+            action.payload.velocity;
+          state.engineData[action.payload.id].distance =
+            action.payload.distance;
+          if (action.payload.time !== undefined) {
+            state.engineData[action.payload.id].time = action.payload.time;
           }
-
-          state.engineData[id].velocity = velocity;
-          state.engineData[id].distance = distance;
-          if (time != null) state.engineData[id].time = time;
         },
       )
       .addCase(AsyncEngineControl.rejected, (state, action) => {

@@ -14,7 +14,8 @@ export default function NavBar(): JSX.Element {
               to="/Garage"
               className={({ isActive }) =>
                 isActive ? `${styles.navLink} ${styles.active}` : styles.navLink
-              }>
+              }
+            >
               Garage
             </NavLink>
           </li>
@@ -23,7 +24,8 @@ export default function NavBar(): JSX.Element {
               to="/Winners"
               className={({ isActive }) =>
                 isActive ? `${styles.navLink} ${styles.active}` : styles.navLink
-              }>
+              }
+            >
               Winners
             </NavLink>
           </li>

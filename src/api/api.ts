@@ -88,25 +88,25 @@ export const ReqToServer = {
   },
 
   async createWinner(id: number, wins: number, time: number): Promise<Winner> {
-    if (!id) throw new Error('id is required!');
-    if (wins == null || time == null)
+    if (!id) {
+      throw new Error('id is required!');
+    }
+    if (wins == null || time == null) {
       throw new Error("time and wins can't be empty");
+    }
 
     try {
       const existingWinner = await this.getWinner(id).catch(() => null);
 
       if (existingWinner) {
-        return this.updateWinner(
+        const response = await this.updateWinner(
           id,
           existingWinner.wins + wins,
           Math.min(existingWinner.time, time),
         );
+        return response;
       } else {
-        const response: AxiosResponse<Winner> = await baseUrl.post('/winners', {
-          id,
-          wins,
-          time,
-        });
+        const response = await baseUrl.post('/winners', { id, wins, time });
         return response.data;
       }
     } catch (error: unknown) {
@@ -114,7 +114,6 @@ export const ReqToServer = {
       throw error;
     }
   },
-
   async getWinners(
     page = 1,
     limit = 10,
